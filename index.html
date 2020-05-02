@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Enter a number to win!</h1>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-lg"
+                >Enter Number</span
+              >
+            </div>
+            <input
+              id="user-number"
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg btn-block"
+            onclick="handleClick('str', 989888, true)"
+          >
+            submit
+          </button>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="jumbotron">
+            <h1 id="winner" class="display-4 text-center">Winner</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function startGame() {
+        const numbers = ["1", "2", "3", "4", "5"];
+        const randomIndex = Math.floor(Math.random() * numbers.length);
+        console.log(randomIndex);
+        const numberToGuess = numbers[randomIndex];
+        console.log("numberToGuess", numberToGuess);
+      }
+      startGame();
+
+      function handleClick() {
+        const inputEl = document.getElementById("user-number");
+
+        const userInput = inputEl.value;
+
+        const winnerEl = document.getElementById("winner");
+
+        if (userInput === "7") {
+          winnerEl.innerHTML = "winner";
+        } else {
+          winnerEl.innerHTML = "loser";
+        }
+      }
+    </script>
+  </body>
+</html>
