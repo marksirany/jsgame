@@ -38,7 +38,7 @@
           <button
             type="button"
             class="btn btn-primary btn-lg btn-block"
-            onclick="handleClick('str', 989888, true)"
+            onclick="handleClick()"
           >
             submit
           </button>
@@ -60,22 +60,25 @@
         console.log(randomIndex);
         const numberToGuess = numbers[randomIndex];
         console.log("numberToGuess", numberToGuess);
+
+        function handleClick() {
+          const guesses = [];
+          const inputEl = document.getElementById("user-number");
+
+          const userInput = inputEl.value;
+
+          const winnerEl = document.getElementById("winner");
+
+          if (userInput === numberToGuess) {
+            winnerEl.innerHTML = "winner";
+          } else {
+            winnerEl.innerHTML = "loser";
+          }
+        }
+
+        window.handleClick = handleClick;
       }
       startGame();
-
-      function handleClick() {
-        const inputEl = document.getElementById("user-number");
-
-        const userInput = inputEl.value;
-
-        const winnerEl = document.getElementById("winner");
-
-        if (userInput === "7") {
-          winnerEl.innerHTML = "winner";
-        } else {
-          winnerEl.innerHTML = "loser";
-        }
-      }
     </script>
   </body>
 </html>
